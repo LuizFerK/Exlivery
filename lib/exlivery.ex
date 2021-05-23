@@ -1,6 +1,7 @@
 defmodule Exlivery do
   alias Exlivery.Orders.Agent, as: OrderAgent
   alias Exlivery.Orders.CreateOrUpdate, as: CreateOrUpdateOrder
+  alias Exlivery.Orders.Report
   alias Exlivery.Users.Agent, as: UserAgent
   alias Exlivery.Users.CreateOrUpdate, as: CreateOrUpdateUser
 
@@ -11,4 +12,5 @@ defmodule Exlivery do
 
   defdelegate create_or_update_user(params), to: CreateOrUpdateUser, as: :call
   defdelegate create_or_update_order(params), to: CreateOrUpdateOrder, as: :call
+  defdelegate generate_report(filename \\ "report.csv"), to: Report, as: :create
 end
